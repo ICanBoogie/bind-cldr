@@ -1,13 +1,13 @@
-# CLDR bindings for ICanBoogie
+# Bind CLDR to ICanBoogie
 
-[![Release](https://img.shields.io/github/release/ICanBoogie/bind-cldr.svg)](https://github.com/ICanBoogie/bind-cldr/releases)
+[![Release](https://img.shields.io/packagist/v/ICanBoogie/bind-cldr.svg)](https://packagist.org/packages/icanboogie/cldr)
 [![Build Status](https://img.shields.io/travis/ICanBoogie/bind-cldr/master.svg)](http://travis-ci.org/ICanBoogie/bind-cldr)
 [![HHVM](https://img.shields.io/hhvm/icanboogie/bind-cldr.svg)](http://hhvm.h4cc.de/package/icanboogie/bind-cldr)
 [![Code Quality](https://img.shields.io/scrutinizer/g/ICanBoogie/bind-cldr/master.svg)](https://scrutinizer-ci.com/g/ICanBoogie/bind-cldr)
 [![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/bind-cldr/master.svg)](https://coveralls.io/r/ICanBoogie/bind-cldr)
 [![Packagist](https://img.shields.io/packagist/dt/icanboogie/bind-cldr.svg)](https://packagist.org/packages/icanboogie/bind-cldr)
 
-Binds [CLDR][] to [ICanBoogie][].
+Binds [CLDR][] to [ICanBoogie][], using its _Autoconfig_ feature.
 
 ```php
 <?php
