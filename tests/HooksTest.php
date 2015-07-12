@@ -11,6 +11,10 @@
 
 namespace ICanBoogie\Binding\CLDR;
 
+use ICanBoogie\CLDR\Locale;
+use ICanBoogie\CLDR\Provider;
+use ICanBoogie\CLDR\Repository;
+
 class TestHooks extends \PHPUnit_Framework_TestCase
 {
 	static private $app;
@@ -23,21 +27,21 @@ class TestHooks extends \PHPUnit_Framework_TestCase
 	public function test_get_cldr_provider()
 	{
 		$instance = Hooks::get_cldr_provider();
-		$this->assertInstanceOf('ICanBoogie\CLDR\ProviderInterface', $instance);
+		$this->assertInstanceOf(Provider::class, $instance);
 		$this->assertSame($instance, self::$app->cldr_provider);
 	}
 
 	public function test_get_cldr()
 	{
 		$instance = Hooks::get_cldr(self::$app);
-		$this->assertInstanceOf('ICanBoogie\CLDR\Repository', $instance);
+		$this->assertInstanceOf(Repository::class, $instance);
 		$this->assertSame($instance, self::$app->cldr);
 	}
 
 	public function test_get_locale()
 	{
 		$instance = Hooks::get_locale(self::$app);
-		$this->assertInstanceOf('ICanBoogie\CLDR\Locale', $instance);
+		$this->assertInstanceOf(Locale::class, $instance);
 		$this->assertSame($instance, self::$app->locale);
 		$this->assertEquals('en', $instance->code);
 	}
@@ -50,7 +54,7 @@ class TestHooks extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('fr', $app->locale->code);
 
 		$app->locale = 'en';
-		$this->assertInstanceOf('ICanBoogie\CLDR\Locale', $app->locale);;
+		$this->assertInstanceOf(Locale::class, $app->locale);;
 		$this->assertEquals('en', $app->locale->code);
 	}
 }

@@ -13,7 +13,8 @@ namespace ICanBoogie\Binding\CLDR;
 
 use ICanBoogie\CLDR\FileProvider;
 use ICanBoogie\CLDR\Locale;
-use ICanBoogie\CLDR\ProviderInterface;
+use ICanBoogie\CLDR\Provider;
+use ICanBoogie\CLDR\ProviderCollection;
 use ICanBoogie\CLDR\Repository;
 use ICanBoogie\CLDR\RunTimeProvider;
 use ICanBoogie\CLDR\WebProvider;
@@ -26,11 +27,11 @@ class Hooks
 	 */
 
 	/**
-	 * Returns a provider chain with the following providers: {@link WebProvider},
+	 * Returns a provider collection with the following providers: {@link WebProvider},
 	 * {@link FileProvider}, and {@link RunTimeProvider}. The {@link FileProvider} is created with
 	 * `REPOSITORY/cldr` as cache directory.
 	 *
-	 * @return ProviderInterface
+	 * @return Provider
 	 */
 	static public function get_cldr_provider()
 	{
@@ -38,7 +39,13 @@ class Hooks
 
 		if (!$provider)
 		{
-			$provider = new RunTimeProvider(new FileProvider(new WebProvider(), \ICanBoogie\REPOSITORY . 'cldr'));
+			$provider = new ProviderCollection([
+
+				new RunTimeProvider,
+				new FileProvider(\ICanBoogie\REPOSITORY . 'cldr'),
+				new WebProvider
+
+			]);
 		}
 
 		return $provider;
@@ -47,7 +54,7 @@ class Hooks
 	/**
 	 * Returns a {@link Repository} instance created with `$app->cldr_provider`.
 	 *
-	 * @param Core $app
+	 * @param Core|CoreBindings $app
 	 *
 	 * @return Repository
 	 */
@@ -68,7 +75,7 @@ class Hooks
 	/**
 	 * Returns the locale used by the application.
 	 *
-	 * @param Core $app
+	 * @param Core|CoreBindings $app
 	 *
 	 * @return Locale
 	 */
@@ -87,7 +94,7 @@ class Hooks
 	/**
 	 * Sets the locale used by the application.
 	 *
-	 * @param Core $app
+	 * @param Core|CoreBindings $app
 	 * @param Locale|string $locale
 	 */
 	static public function set_locale(Core $app, $locale)

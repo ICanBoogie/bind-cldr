@@ -7,7 +7,7 @@
 [![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/bind-cldr/master.svg)](https://coveralls.io/r/ICanBoogie/bind-cldr)
 [![Packagist](https://img.shields.io/packagist/dt/icanboogie/bind-cldr.svg)](https://packagist.org/packages/icanboogie/bind-cldr)
 
-Binds [CLDR][] to [ICanBoogie][], using its _Autoconfig_ feature.
+Binds [icanboogie/cldr][] to [ICanBoogie][].
 
 ```php
 <?php
@@ -59,7 +59,7 @@ with the CLDR provider.
 
 ## Requirements
 
-The package requires PHP 5.4 or later.
+The package requires PHP 5.5 or later.
 
 
 
@@ -117,13 +117,13 @@ The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
 ## License
 
-ICanBoogie/bind-cldr is licensed under the New BSD License - See the [LICENSE](LICENSE) file for details.
+**icanboogie/bind-cldr** is licensed under the New BSD License - See the [LICENSE](LICENSE) file for details.
 
 
 
 
 
-[CLDR]: https://github.com/ICanBoogie/CLDR
+[icanboogie/cldr]: https://github.com/ICanBoogie/CLDR
 [FileProvider]: http://icanboogie.org/docs/class-ICanBoogie.CLDR.FileProvider.html
 [ICanBoogie]: https://github.com/ICanBoogie/ICanBoogie
 [Repository]: http://icanboogie.org/docs/class-ICanBoogie.CLDR.Repository.html

@@ -11,6 +11,14 @@
 
 namespace ICanBoogie;
 
+use ICanBoogie\Binding\CLDR\CoreBindings as CLDRBindings;
+
 require __DIR__ . '/../vendor/autoload.php';
 
-boot();
+class Application extends Core
+{
+	use CLDRBindings;
+}
+
+$app = new Application(get_autoconfig());
+$app->boot();
