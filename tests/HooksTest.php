@@ -14,9 +14,13 @@ namespace ICanBoogie\Binding\CLDR;
 use ICanBoogie\CLDR\Locale;
 use ICanBoogie\CLDR\Provider;
 use ICanBoogie\CLDR\Repository;
+use ICanBoogie\Core;
 
 class TestHooks extends \PHPUnit_Framework_TestCase
 {
+	/**
+	 * @var Core|CoreBindings
+	 */
 	static private $app;
 
 	static public function setupBeforeClass()

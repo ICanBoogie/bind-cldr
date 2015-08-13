@@ -19,10 +19,12 @@
 		"source": "https://github.com/ICanBoogie/bind-cldr"
 	},
 
+	"minimum-stability": "dev",
+
 	"require": {
 		"php": ">=5.5.0",
-		"icanboogie/icanboogie": "2.4.x-dev",
-		"icanboogie/cldr": "1.4.x-dev"
+		"icanboogie/icanboogie": "^2.4.0",
+		"icanboogie/cldr": "^1.4.0"
 	},
 
 	"autoload": {
