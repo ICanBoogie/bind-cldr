@@ -54,12 +54,16 @@ class CoreBindingsTest extends \PHPUnit_Framework_TestCase
 	{
 		$app = self::$app;
 
+		/* @var $locale Locale */
+
 		$app->locale = 'fr';
-		$this->assertInstanceOf(Locale::class, $app->locale);
-		$this->assertEquals('fr', $app->locale->code);
+		$locale = $app->locale;
+		$this->assertInstanceOf(Locale::class, $locale);
+		$this->assertEquals('fr', $locale->code);
 
 		$app->locale = 'en';
-		$this->assertInstanceOf(Locale::class, $app->locale);
-		$this->assertEquals('en', $app->locale->code);
+		$locale = $app->locale;
+		$this->assertInstanceOf(Locale::class, $locale);
+		$this->assertEquals('en', $locale->code);
 	}
 }

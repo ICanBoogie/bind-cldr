@@ -20,7 +20,7 @@ use ICanBoogie\CLDR\Repository;
  *
  * @property Provider $cldr_provider
  * @property Repository $cldr
- * @property Locale|string $locale
+ * @property Locale $locale
  *
  * @see Hooks::get_cldr_provider
  * @see Hooks::get_cldr
