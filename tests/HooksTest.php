@@ -63,4 +63,17 @@ class TestHooks extends \PHPUnit_Framework_TestCase
 		$this->assertInstanceOf(Locale::class, $locale);;
 		$this->assertEquals('en', $locale->code);
 	}
+
+	public function test_get_language()
+	{
+		$app = self::$app;
+
+		Hooks::set_locale($app, 'fr');
+		$this->assertEquals('fr', Hooks::get_language($app));
+		$this->assertEquals('fr', $app->language);
+
+		Hooks::set_locale($app, 'en-GB');
+		$this->assertEquals('en', Hooks::get_language($app));
+		$this->assertEquals('en', $app->language);
+	}
 }

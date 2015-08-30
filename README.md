@@ -20,12 +20,13 @@ echo $app->cldr->locales['fr']['languages']['fr']; // français
 
 # Getting the current locale, defaulting to 'en' locale
 echo get_class($app->locale);                      // ICanBoogie\CLDR\Locale
-echo $app->locale->code;                           // en
+echo $app->locale;                                 // en
 
 # Setting the current locale to French
-$app->locale = 'fr';
+$app->locale = 'fr-FR';
 echo get_class($app->locale);                      // ICanBoogie\CLDR\Locale
-echo $app->locale->code;                           // fr
+echo $app->locale;                                 // fr-FR
+echo $app->language;                               // fr
 ```
 
 

@@ -101,4 +101,16 @@ class Hooks
 	{
 		self::$locale = $locale;
 	}
+
+	/**
+	 * Returns the language of the application.
+	 *
+	 * @param Core|CoreBindings $app
+	 *
+	 * @return string
+	 */
+	static public function get_language(Core $app)
+	{
+		return $app->locale->language;
+	}
 }

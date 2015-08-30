@@ -21,11 +21,13 @@ use ICanBoogie\CLDR\Repository;
  * @property Provider $cldr_provider
  * @property Repository $cldr
  * @property Locale $locale
+ * @property-read string $language
  *
- * @see Hooks::get_cldr_provider
- * @see Hooks::get_cldr
- * @see Hooks::get_locale
- * @see Hooks::set_locale
+ * @see \ICanBoogie\Binding\CLDR\Hooks::get_cldr_provider
+ * @see \ICanBoogie\Binding\CLDR\Hooks::get_cldr
+ * @see \ICanBoogie\Binding\CLDR\Hooks::get_locale
+ * @see \ICanBoogie\Binding\CLDR\Hooks::set_locale
+ * @see \ICanBoogie\Binding\CLDR\Hooks::get_language
  */
 trait CoreBindings
 {
