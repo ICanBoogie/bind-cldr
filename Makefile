@@ -1,7 +1,7 @@
 # customization
 
-PACKAGE_NAME = ICanBoogie/bind-cldr
-PACKAGE_VERSION = 0.3.0
+PACKAGE_NAME = icanboogie/bind-cldr
+PACKAGE_VERSION = 1.0.0
 
 # do not edit the following lines
 
