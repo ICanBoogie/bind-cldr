@@ -29,7 +29,7 @@ class Hooks
 	/**
 	 * Returns a provider collection with the following providers: {@link WebProvider},
 	 * {@link FileProvider}, and {@link RunTimeProvider}. The {@link FileProvider} is created with
-	 * `REPOSITORY/cldr` as cache directory.
+	 * `REPOSITORY/cache/cldr` as cache directory.
 	 *
 	 * @return Provider
 	 */
@@ -42,7 +42,7 @@ class Hooks
 			$provider = new ProviderCollection([
 
 				new RunTimeProvider,
-				new FileProvider(\ICanBoogie\REPOSITORY . 'cldr'),
+				new FileProvider(\ICanBoogie\REPOSITORY . 'cache' . DIRECTORY_SEPARATOR . 'cldr'),
 				new WebProvider
 
 			]);
