@@ -19,6 +19,7 @@ use ICanBoogie\CLDR\Repository;
 use ICanBoogie\CLDR\RunTimeProvider;
 use ICanBoogie\CLDR\WebProvider;
 use ICanBoogie\Core;
+use ICanBoogie\Storage\APCStorage;
 
 class Hooks
 {
@@ -39,13 +40,14 @@ class Hooks
 
 		if (!$provider)
 		{
-			$provider = new ProviderCollection([
+			$provider = new ProviderCollection(array_filter([
 
 				new RunTimeProvider,
+				APCStorage::is_available() ? new APCStorage('icanboogie:cldr:') : null,
 				new FileProvider(\ICanBoogie\REPOSITORY . 'cache' . DIRECTORY_SEPARATOR . 'cldr'),
 				new WebProvider
 
-			]);
+			]));
 		}
 
 		return $provider;

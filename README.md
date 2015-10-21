@@ -7,7 +7,7 @@
 [![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/bind-cldr/master.svg)](https://coveralls.io/r/ICanBoogie/bind-cldr)
 [![Packagist](https://img.shields.io/packagist/dt/icanboogie/bind-cldr.svg)](https://packagist.org/packages/icanboogie/bind-cldr)
 
-Binds [icanboogie/cldr][] to [ICanBoogie][].
+Binds [icanboogie/cldr][] to [ICanBoogie][], using its [Autoconfig][] feature.
 
 ```php
 <?php
@@ -33,13 +33,14 @@ echo $app->language;                               // fr
 
 
 
-## Autoconfig support
+## Prototype methods
 
-The Autoconfig feature of [ICanBoogie][] is supported and the following things are provided:
+The following prototype methods are provided:
 
-- `ICanBoogie\Core::lazy_get_cldr_provider`: A lazy getter that returns a chain of providers. A
-[FileProvider][] instance is used in the chain and is configured to use
-"<ICanBoogie\REPOSITORY>/cldr" as cache directory.
+- `ICanBoogie\Core::lazy_get_cldr_provider`: A lazy getter that returns a [ProviderCollection][]
+instance. A [FileProvider][] instance is used in the collection and is configured to use
+`<ICanBoogie\REPOSITORY>cache/cldr` as cache directory. A [APCStorage][] instance is also
+part of the collection if APC is available.
 
 - `ICanBoogie\Core::lazy_get_cldr`: A lazy getter that returns a [Repository][] instance created
 with the CLDR provider.
@@ -124,7 +125,11 @@ The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
 
 
-[icanboogie/cldr]: https://github.com/ICanBoogie/CLDR
-[FileProvider]: http://icanboogie.org/docs/class-ICanBoogie.CLDR.FileProvider.html
-[ICanBoogie]: https://github.com/ICanBoogie/ICanBoogie
-[Repository]: http://icanboogie.org/docs/class-ICanBoogie.CLDR.Repository.html
+[FileProvider]:       http://api.icanboogie.org/cldr/latest/class-ICanBoogie.CLDR.FileProvider.html
+[Repository]:         http://api.icanboogie.org/cldr/latest/class-ICanBoogie.CLDR.Repository.html
+[ProviderCollection]: http://api.icanboogie.org/cldr/latest/class-ICanBoogie.CLDR.ProviderCollection.html
+[APCStorage]:         http://api.icanboogie.org/storage/latest/class-ICanBoogie.Storage.APCStorage.html
+
+[icanboogie/cldr]:    https://github.com/ICanBoogie/CLDR
+[ICanBoogie]:         https://github.com/ICanBoogie/ICanBoogie
+[Autoconfig]:         https://github.com/ICanBoogie/ICanBoogie#autoconfig
