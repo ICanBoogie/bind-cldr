@@ -24,7 +24,7 @@
 	"require": {
 		"php": ">=5.5.0",
 		"icanboogie/icanboogie": "^3.0.0",
-		"icanboogie/cldr": "^1.5.0"
+		"icanboogie/cldr": "^1.4.2"
 	},
 
 	"autoload": {
