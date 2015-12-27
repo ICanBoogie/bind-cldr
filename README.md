@@ -1,6 +1,6 @@
 # Bind CLDR to ICanBoogie
 
-[![Release](https://img.shields.io/packagist/v/ICanBoogie/bind-cldr.svg)](https://packagist.org/packages/icanboogie/cldr)
+[![Release](https://img.shields.io/packagist/v/ICanBoogie/bind-cldr.svg)](https://packagist.org/packages/icanboogie/bind-cldr)
 [![Build Status](https://img.shields.io/travis/ICanBoogie/bind-cldr/master.svg)](http://travis-ci.org/ICanBoogie/bind-cldr)
 [![HHVM](https://img.shields.io/hhvm/icanboogie/bind-cldr.svg)](http://hhvm.h4cc.de/package/icanboogie/bind-cldr)
 [![Code Quality](https://img.shields.io/scrutinizer/g/ICanBoogie/bind-cldr/master.svg)](https://scrutinizer-ci.com/g/ICanBoogie/bind-cldr)
