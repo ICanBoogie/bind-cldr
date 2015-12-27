@@ -125,10 +125,10 @@ The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
 
 
-[FileProvider]:       http://api.icanboogie.org/cldr/latest/class-ICanBoogie.CLDR.FileProvider.html
-[Repository]:         http://api.icanboogie.org/cldr/latest/class-ICanBoogie.CLDR.Repository.html
-[ProviderCollection]: http://api.icanboogie.org/cldr/latest/class-ICanBoogie.CLDR.ProviderCollection.html
-[APCStorage]:         http://api.icanboogie.org/storage/latest/class-ICanBoogie.Storage.APCStorage.html
+[FileProvider]:       http://api.icanboogie.org/cldr/1.4/class-ICanBoogie.CLDR.FileProvider.html
+[Repository]:         http://api.icanboogie.org/cldr/1.4/class-ICanBoogie.CLDR.Repository.html
+[ProviderCollection]: http://api.icanboogie.org/cldr/1.4/class-ICanBoogie.CLDR.ProviderCollection.html
+[APCStorage]:         http://api.icanboogie.org/storage/2.0/class-ICanBoogie.Storage.APCStorage.html
 
 [icanboogie/cldr]:    https://github.com/ICanBoogie/CLDR
 [ICanBoogie]:         https://github.com/ICanBoogie/ICanBoogie
