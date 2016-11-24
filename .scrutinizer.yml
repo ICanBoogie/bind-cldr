@@ -1,0 +1,3 @@
+before_commands:
+    - "sudo composer self-update"
+    - "COMPOSER_ROOT_VERSION=1.4 composer install --prefer-dist"

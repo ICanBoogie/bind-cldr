@@ -1,4 +1,4 @@
+build
 composer.lock
-build/
-vendor/
-tests/repository/
+vendor
+tests/repository
