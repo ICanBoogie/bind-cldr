@@ -17,7 +17,7 @@ use ICanBoogie\CLDR\Provider;
 use ICanBoogie\CLDR\Repository;
 
 /**
- * {@link \ICanBoogie\Core} prototype bindings.
+ * {@link \ICanBoogie\Application} prototype bindings.
  *
  * @property Cache $cldr_cache
  * @property Provider $cldr_provider
@@ -32,7 +32,7 @@ use ICanBoogie\CLDR\Repository;
  * @see \ICanBoogie\Binding\CLDR\Hooks::set_locale
  * @see \ICanBoogie\Binding\CLDR\Hooks::get_language
  */
-trait CoreBindings
+trait ApplicationBindings
 {
 
 }

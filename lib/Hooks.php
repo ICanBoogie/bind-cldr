@@ -11,6 +11,8 @@
 
 namespace ICanBoogie\Binding\CLDR;
 
+use ICanBoogie\AppConfig;
+use ICanBoogie\Application;
 use ICanBoogie\Binding\CLDR\Cache\APCCache;
 use ICanBoogie\CLDR\Cache;
 use ICanBoogie\CLDR\Cache\CacheCollection;
@@ -19,7 +21,6 @@ use ICanBoogie\CLDR\Cache\RuntimeCache;
 use ICanBoogie\CLDR\Locale;
 use ICanBoogie\CLDR\Provider;
 use ICanBoogie\CLDR\Repository;
-use ICanBoogie\Core;
 use function is_dir;
 use function mkdir;
 
@@ -32,15 +33,17 @@ final class Hooks
 	/**
 	 * Returns a cache for CLDR data.
 	 *
+	 * @param Application $app
+	 *
 	 * @return Cache
 	 */
-	static public function get_cldr_cache()
+	static public function get_cldr_cache(Application $app)
 	{
 		static $cache;
 
 		if (!$cache)
 		{
-			$cache_dir = \ICanBoogie\REPOSITORY . 'cache' . DIRECTORY_SEPARATOR . 'cldr';
+			$cache_dir = $directory = $app->config[AppConfig::REPOSITORY_CACHE] . '/cldr';
 
 			if (!is_dir($cache_dir))
 			{
@@ -60,11 +63,11 @@ final class Hooks
 	/**
 	 * Returns a CLDR provider.
 	 *
-	 * @param Core $app
+	 * @param Application $app
 	 *
 	 * @return Provider
 	 */
-	static public function get_cldr_provider(Core $app)
+	static public function get_cldr_provider(Application $app)
 	{
 		static $provider;
 
@@ -82,11 +85,11 @@ final class Hooks
 	/**
 	 * Returns a {@link Repository} instance created with `$app->cldr_provider`.
 	 *
-	 * @param Core|CoreBindings $app
+	 * @param Application $app
 	 *
 	 * @return Repository
 	 */
-	static public function get_cldr(Core $app)
+	static public function get_cldr(Application $app)
 	{
 		static $cldr;
 
@@ -103,11 +106,11 @@ final class Hooks
 	/**
 	 * Returns the locale used by the application.
 	 *
-	 * @param Core|CoreBindings $app
+	 * @param Application $app
 	 *
 	 * @return Locale
 	 */
-	static public function get_locale(Core $app)
+	static public function get_locale(Application $app)
 	{
 		$locale = self::$locale;
 
@@ -122,10 +125,10 @@ final class Hooks
 	/**
 	 * Sets the locale used by the application.
 	 *
-	 * @param Core|CoreBindings $app
+	 * @param Application $app
 	 * @param Locale|string $locale
 	 */
-	static public function set_locale(Core $app, $locale)
+	static public function set_locale(Application $app, $locale)
 	{
 		self::$locale = $locale;
 	}
@@ -133,11 +136,11 @@ final class Hooks
 	/**
 	 * Returns the language of the application.
 	 *
-	 * @param Core|CoreBindings $app
+	 * @param Application $app
 	 *
 	 * @return string
 	 */
-	static public function get_language(Core $app)
+	static public function get_language(Application $app)
 	{
 		return $app->locale->language;
 	}

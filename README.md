@@ -36,17 +36,17 @@ echo $app->language;                               // fr
 
 The following prototype methods are provided:
 
-- `ICanBoogie\Core::lazy_get_cldr_provider`: A lazy getter that returns a [ProviderCollection][]
+- `ICanBoogie\Application::lazy_get_cldr_provider`: A lazy getter that returns a [ProviderCollection][]
 instance. A [FileProvider][] instance is used in the collection and is configured to use
 `<ICanBoogie\REPOSITORY>cache/cldr` as cache directory. A [APCStorage][] instance is also
 part of the collection if APC is available.
 
-- `ICanBoogie\Core::lazy_get_cldr`: A lazy getter that returns a [Repository][] instance created
+- `ICanBoogie\Application::lazy_get_cldr`: A lazy getter that returns a [Repository][] instance created
 with the CLDR provider.
 
-- `ICanBoogie\Core::set_locale`: Sets the locale used by the application.
+- `ICanBoogie\Application::set_locale`: Sets the locale used by the application.
 
-- `ICanBoogie\Core::get_locale`: Returns the locale used by the application.
+- `ICanBoogie\Application::get_locale`: Returns the locale used by the application.
 
 
 
@@ -91,8 +91,8 @@ cloned with the following command line:
 
 ## Documentation
 
-The package is documented as part of the [ICanBoogie](http://icanboogie.org/) framework
-[documentation](http://icanboogie.org/docs/). You can generate the documentation for the package
+The package is documented as part of the [ICanBoogie](https://icanboogie.org/) framework
+[documentation](https://icanboogie.org/docs/). You can generate the documentation for the package
 and its dependencies with the `make doc` command. The documentation is generated in the `docs`
 directory. [ApiGen](http://apigen.org/) is required. You can later clean the directory with
 the `make clean` command.
@@ -130,5 +130,5 @@ The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 [APCStorage]:         https://icanboogie.org/api/storage/2.0/class-ICanBoogie.Storage.APCStorage.html
 
 [icanboogie/cldr]:    https://github.com/ICanBoogie/CLDR
-[ICanBoogie]:         https://github.com/ICanBoogie/ICanBoogie
-[Autoconfig]:         https://github.com/ICanBoogie/ICanBoogie#autoconfig
+[ICanBoogie]:         https://icanboogie.org
+[Autoconfig]:         https://icanboogie.org/docs/4.0/autoconfig

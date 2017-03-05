@@ -1,7 +1,7 @@
 # customization
 
 PACKAGE_NAME = icanboogie/bind-cldr
-PACKAGE_VERSION = 2.0
+PACKAGE_VERSION = 3.0
 PHPUNIT_VERSION = phpunit-5.7.phar
 PHPUNIT = build/$(PHPUNIT_VERSION)
 

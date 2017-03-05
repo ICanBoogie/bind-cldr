@@ -11,17 +11,18 @@
 
 namespace ICanBoogie\Binding\CLDR;
 
+use ICanBoogie\Application;
 use ICanBoogie\CLDR\Cache;
 use ICanBoogie\CLDR\Locale;
 use ICanBoogie\CLDR\Provider;
 use ICanBoogie\CLDR\Repository;
-use ICanBoogie\Core;
+use PHPUnit\Framework\TestCase;
 use function ICanBoogie\app;
 
-class TestHooks extends \PHPUnit_Framework_TestCase
+class HooksTest extends TestCase
 {
 	/**
-	 * @var Core|CoreBindings
+	 * @var Application
 	 */
 	static private $app;
 
@@ -32,7 +33,7 @@ class TestHooks extends \PHPUnit_Framework_TestCase
 
 	public function test_get_cldr_cache()
 	{
-		$instance = Hooks::get_cldr_cache();
+		$instance = Hooks::get_cldr_cache(self::$app);
 		$this->assertInstanceOf(Cache::class, $instance);
 		$this->assertSame($instance, self::$app->cldr_cache);
 	}

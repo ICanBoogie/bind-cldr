@@ -11,16 +11,7 @@
 
 namespace ICanBoogie;
 
-use ICanBoogie\Binding\CLDR\ApplicationBindings;
-
-chdir(__DIR__);
-
-require __DIR__ . '/../vendor/autoload.php';
-
 class Application extends ApplicationAbstract
 {
-	use ApplicationBindings;
+	use Binding\CLDR\ApplicationBindings;
 }
-
-$app = new Application(get_autoconfig());
-$app->boot();

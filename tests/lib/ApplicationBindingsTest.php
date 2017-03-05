@@ -15,9 +15,10 @@ use ICanBoogie\Application;
 use ICanBoogie\CLDR\Locale;
 use ICanBoogie\CLDR\Provider;
 use ICanBoogie\CLDR\Repository;
+use PHPUnit\Framework\TestCase;
 use function ICanBoogie\app;
 
-class CoreBindingsTest extends \PHPUnit_Framework_TestCase
+class ApplicationBindingsTest extends TestCase
 {
 	/**
 	 * @var Application
