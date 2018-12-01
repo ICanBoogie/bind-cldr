@@ -2,44 +2,37 @@
 	"name": "icanboogie/bind-cldr",
 	"type": "library",
 	"description": "Binds CLDR to ICanBoogie",
-	"homepage": "http://icanboogie.org/",
+	"homepage": "https://icanboogie.org/",
 	"license": "BSD-3-Clause",
-
 	"authors": [
 		{
 			"name": "Olivier Laviale",
 			"email": "olivier.laviale@gmail.com",
-			"homepage": "http://www.weirdog.com/",
-			"role" : "Developer"
+			"homepage": "https://olvlvl.com/",
+			"role": "Developer"
 		}
 	],
-
 	"support": {
 		"issues": "https://github.com/ICanBoogie/bind-cldr/issues",
 		"source": "https://github.com/ICanBoogie/bind-cldr"
 	},
-
 	"minimum-stability": "dev",
 	"prefer-stable": true,
-
 	"require": {
-		"php": ">=5.5.0",
+		"php": ">=5.5",
 		"icanboogie/icanboogie": "^3.0",
 		"icanboogie/cldr": "^1.4"
 	},
-
 	"autoload": {
 		"psr-4": {
 			"ICanBoogie\\Binding\\CLDR\\": "lib"
 		}
 	},
-
 	"extra": {
 		"icanboogie": {
 			"config-path": "config"
 		}
 	},
-
 	"scripts": {
 		"post-autoload-dump": "ICanBoogie\\Autoconfig\\Hooks::on_autoload_dump"
 	}
