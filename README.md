@@ -2,7 +2,6 @@
 
 [![Release](https://img.shields.io/packagist/v/ICanBoogie/bind-cldr.svg)](https://packagist.org/packages/icanboogie/bind-cldr)
 [![Build Status](https://img.shields.io/travis/ICanBoogie/bind-cldr/master.svg)](http://travis-ci.org/ICanBoogie/bind-cldr)
-[![HHVM](https://img.shields.io/hhvm/icanboogie/bind-cldr.svg)](http://hhvm.h4cc.de/package/icanboogie/bind-cldr)
 [![Code Quality](https://img.shields.io/scrutinizer/g/ICanBoogie/bind-cldr/master.svg)](https://scrutinizer-ci.com/g/ICanBoogie/bind-cldr)
 [![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/bind-cldr/master.svg)](https://coveralls.io/r/ICanBoogie/bind-cldr)
 [![Packagist](https://img.shields.io/packagist/dt/icanboogie/bind-cldr.svg)](https://packagist.org/packages/icanboogie/bind-cldr)
@@ -61,7 +60,7 @@ with the CLDR provider.
 
 ## Requirements
 
-The package requires PHP 5.5 or later.
+The package requires PHP 5.6 or later.
 
 
 
@@ -125,10 +124,10 @@ The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
 
 
-[FileProvider]:       http://api.icanboogie.org/cldr/1.4/class-ICanBoogie.CLDR.FileProvider.html
-[Repository]:         http://api.icanboogie.org/cldr/1.4/class-ICanBoogie.CLDR.Repository.html
-[ProviderCollection]: http://api.icanboogie.org/cldr/1.4/class-ICanBoogie.CLDR.ProviderCollection.html
-[APCStorage]:         http://api.icanboogie.org/storage/2.0/class-ICanBoogie.Storage.APCStorage.html
+[FileProvider]:       https://icanboogie.org/api/cldr/2.0/class-ICanBoogie.CLDR.FileProvider.html
+[Repository]:         https://icanboogie.org/api/cldr/2.0/class-ICanBoogie.CLDR.Repository.html
+[ProviderCollection]: https://icanboogie.org/api/cldr/2.0/class-ICanBoogie.CLDR.ProviderCollection.html
+[APCStorage]:         https://icanboogie.org/api/storage/2.0/class-ICanBoogie.Storage.APCStorage.html
 
 [icanboogie/cldr]:    https://github.com/ICanBoogie/CLDR
 [ICanBoogie]:         https://github.com/ICanBoogie/ICanBoogie

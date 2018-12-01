@@ -15,6 +15,7 @@ use ICanBoogie\Application;
 use ICanBoogie\CLDR\Locale;
 use ICanBoogie\CLDR\Provider;
 use ICanBoogie\CLDR\Repository;
+use function ICanBoogie\app;
 
 class CoreBindingsTest extends \PHPUnit_Framework_TestCase
 {
@@ -25,7 +26,7 @@ class CoreBindingsTest extends \PHPUnit_Framework_TestCase
 
 	static public function setupBeforeClass()
 	{
-		self::$app = \ICanBoogie\app();
+		self::$app = app();
 	}
 
 	/**

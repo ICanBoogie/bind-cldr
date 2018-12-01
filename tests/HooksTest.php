@@ -11,10 +11,12 @@
 
 namespace ICanBoogie\Binding\CLDR;
 
+use ICanBoogie\CLDR\Cache;
 use ICanBoogie\CLDR\Locale;
 use ICanBoogie\CLDR\Provider;
 use ICanBoogie\CLDR\Repository;
 use ICanBoogie\Core;
+use function ICanBoogie\app;
 
 class TestHooks extends \PHPUnit_Framework_TestCase
 {
@@ -25,12 +27,19 @@ class TestHooks extends \PHPUnit_Framework_TestCase
 
 	static public function setupBeforeClass()
 	{
-		self::$app = \ICanBoogie\app();
+		self::$app = app();
+	}
+
+	public function test_get_cldr_cache()
+	{
+		$instance = Hooks::get_cldr_cache();
+		$this->assertInstanceOf(Cache::class, $instance);
+		$this->assertSame($instance, self::$app->cldr_cache);
 	}
 
 	public function test_get_cldr_provider()
 	{
-		$instance = Hooks::get_cldr_provider();
+		$instance = Hooks::get_cldr_provider(self::$app);
 		$this->assertInstanceOf(Provider::class, $instance);
 		$this->assertSame($instance, self::$app->cldr_provider);
 	}
@@ -40,6 +49,12 @@ class TestHooks extends \PHPUnit_Framework_TestCase
 		$instance = Hooks::get_cldr(self::$app);
 		$this->assertInstanceOf(Repository::class, $instance);
 		$this->assertSame($instance, self::$app->cldr);
+	}
+
+	public function test_get_something()
+	{
+		$cldr = Hooks::get_cldr(self::$app);
+		$this->assertNotEmpty($cldr->locales['fr']->calendar->abbreviated_quarters);
 	}
 
 	public function test_get_locale()

@@ -11,43 +11,69 @@
 
 namespace ICanBoogie\Binding\CLDR;
 
-use ICanBoogie\CLDR\FileProvider;
+use ICanBoogie\Binding\CLDR\Cache\APCCache;
+use ICanBoogie\CLDR\Cache;
+use ICanBoogie\CLDR\Cache\CacheCollection;
+use ICanBoogie\CLDR\Cache\FileCache;
+use ICanBoogie\CLDR\Cache\RuntimeCache;
 use ICanBoogie\CLDR\Locale;
 use ICanBoogie\CLDR\Provider;
-use ICanBoogie\CLDR\ProviderCollection;
 use ICanBoogie\CLDR\Repository;
-use ICanBoogie\CLDR\RunTimeProvider;
-use ICanBoogie\CLDR\WebProvider;
 use ICanBoogie\Core;
-use ICanBoogie\Storage\APCStorage;
+use function is_dir;
+use function mkdir;
 
-class Hooks
+final class Hooks
 {
 	/*
 	 * Prototypes
 	 */
 
 	/**
-	 * Returns a provider collection with the following providers: {@link WebProvider},
-	 * {@link FileProvider}, and {@link RunTimeProvider}. The {@link FileProvider} is created with
-	 * `REPOSITORY/cache/cldr` as cache directory.
+	 * Returns a cache for CLDR data.
+	 *
+	 * @return Cache
+	 */
+	static public function get_cldr_cache()
+	{
+		static $cache;
+
+		if (!$cache)
+		{
+			$cache_dir = \ICanBoogie\REPOSITORY . 'cache' . DIRECTORY_SEPARATOR . 'cldr';
+
+			if (!is_dir($cache_dir))
+			{
+				mkdir($cache_dir, 0755, true);
+			}
+
+			$cache = new CacheCollection(array_filter([
+				new RuntimeCache,
+				APCCache::is_available() ? new APCCache : null,
+				new FileCache($cache_dir)
+			]));
+		}
+
+		return $cache;
+	}
+
+	/**
+	 * Returns a CLDR provider.
+	 *
+	 * @param Core $app
 	 *
 	 * @return Provider
 	 */
-	static public function get_cldr_provider()
+	static public function get_cldr_provider(Core $app)
 	{
 		static $provider;
 
 		if (!$provider)
 		{
-			$provider = new ProviderCollection(array_filter([
-
-				new RunTimeProvider,
-				APCStorage::is_available() ? new APCStorage('icanboogie:cldr:') : null,
-				new FileProvider(\ICanBoogie\REPOSITORY . 'cache' . DIRECTORY_SEPARATOR . 'cldr'),
-				new WebProvider
-
-			]));
+			$provider = new Provider\CachedProvider(
+				new Provider\WebProvider,
+				$app->cldr_cache
+			);
 		}
 
 		return $provider;
@@ -85,7 +111,7 @@ class Hooks
 	{
 		$locale = self::$locale;
 
-		if (!($locale instanceof Locale))
+		if (!$locale instanceof Locale)
 		{
 			$locale = self::$locale = $app->cldr->locales[$locale ?: 'en'];
 		}

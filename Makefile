@@ -1,8 +1,8 @@
 # customization
 
 PACKAGE_NAME = icanboogie/bind-cldr
-PACKAGE_VERSION = 1.4
-PHPUNIT_VERSION = phpunit-4.8.phar
+PACKAGE_VERSION = 2.0
+PHPUNIT_VERSION = phpunit-5.7.phar
 PHPUNIT = build/$(PHPUNIT_VERSION)
 
 # do not edit the following lines
@@ -56,6 +56,6 @@ clean:
 	@rm -fR build
 	@rm -fR vendor
 	@rm -f composer.lock
-	@rm -f tests/repository/*
+	@rm -fR tests/repository/*
 
 .PHONY: all autoload doc clean test test-coverage test-coveralls test-dependencies update

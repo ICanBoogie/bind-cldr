@@ -13,6 +13,8 @@ namespace ICanBoogie;
 
 use ICanBoogie\Binding\CLDR\CoreBindings as CLDRBindings;
 
+chdir(__DIR__);
+
 require __DIR__ . '/../vendor/autoload.php';
 
 class Application extends Core

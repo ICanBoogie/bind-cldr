@@ -1,4 +1,4 @@
-FROM php:5.5-alpine
+FROM php:5.6-alpine
 
 RUN apk add --update --no-cache make $PHPIZE_DEPS && \
 	pecl install xdebug-2.5.5 && \
@@ -22,7 +22,3 @@ RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer && \
     php -r "if (hash('SHA384', file_get_contents('/tmp/composer-setup.php')) !== trim(file_get_contents('/tmp/composer-setup.sig'))) { unlink('/tmp/composer-setup.php'); echo 'Invalid installer' . PHP_EOL; exit(1); }" && \
     php /tmp/composer-setup.php && \
     mv composer.phar /usr/local/bin/composer
-
-RUN apk update && \
-	apk add ca-certificates wget && \
-	update-ca-certificates
