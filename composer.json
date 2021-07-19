@@ -20,8 +20,8 @@
 	"prefer-stable": true,
 	"require": {
 		"php": ">=7.2",
-		"icanboogie/icanboogie": "^5.0",
-		"icanboogie/cldr": "^2.0|^3.0"
+		"icanboogie/icanboogie": "^4.0",
+		"icanboogie/cldr": "^3.0"
 	},
 	"autoload": {
 		"psr-4": {
