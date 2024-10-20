@@ -1,0 +1,25 @@
+parameters:
+  icanboogie.cldr.cache_dir: "%app.config.var_cache%cldr/"
+
+services:
+  _defaults:
+    autowire: true
+
+  ICanBoogie\CLDR\Cache:
+    class: ICanBoogie\CLDR\Cache\FileCache
+    arguments:
+      $path: '%icanboogie.cldr.cache_dir%'
+
+  ICanBoogie\CLDR\Provider:
+    class: ICanBoogie\CLDR\Provider\CachedProvider
+    arguments:
+      $provider: '@ICanBoogie\CLDR\Provider\WebProvider'
+      $cache: '@ICanBoogie\CLDR\Cache'
+
+  ICanBoogie\CLDR\Provider\WebProvider: ~
+
+  ICanBoogie\CLDR\Repository:
+    public: true
+
+  ICanBoogie\Binding\CLDR\CurrentLocale:
+    public: true

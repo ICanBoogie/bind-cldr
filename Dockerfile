@@ -1,24 +1,38 @@
-FROM php:7.2-alpine
+ARG PHP_VERSION
+FROM php:${PHP_VERSION}-cli-bookworm
 
-RUN apk add --update --no-cache make $PHPIZE_DEPS && \
-	pecl install xdebug-2.6.1 && \
-	docker-php-ext-enable xdebug
+RUN <<-EOF
+    apt-get update
+	apt-get install -y autoconf pkg-config
+	pecl channel-update pecl.php.net
+	pecl install xdebug
+	docker-php-ext-enable opcache xdebug
+EOF
 
-RUN echo $'\
-xdebug.remote_autostart=1\n\
-xdebug.remote_enable=1\n\
-xdebug.remote_host=host.docker.internal\n\
-' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN <<-EOF
+	cat <<-SHELL >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+	xdebug.client_host=host.docker.internal
+	xdebug.mode=develop
+	xdebug.start_with_request=yes
+	SHELL
 
-RUN echo $'\
-date.timezone=UTC\n\
-' >> /usr/local/etc/php/conf.d/php.ini
+	cat <<-SHELL >> /usr/local/etc/php/conf.d/php.ini
+	display_errors=On
+	error_reporting=E_ALL
+	date.timezone=UTC
+	SHELL
+EOF
 
-ENV PHP_IDE_CONFIG serverName=icanboogie-tests
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer && \
-    curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig && \
-    php -r "if (hash('SHA384', file_get_contents('/tmp/composer-setup.php')) !== trim(file_get_contents('/tmp/composer-setup.sig'))) { unlink('/tmp/composer-setup.php'); echo 'Invalid installer' . PHP_EOL; exit(1); }" && \
-    php /tmp/composer-setup.php && \
-    mv composer.phar /usr/local/bin/composer
+RUN <<-EOF
+	apt-get update
+	apt-get install unzip
+	curl -s https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer | php -- --quiet
+	mv composer.phar /usr/local/bin/composer
+	cat <<-SHELL >> /root/.bashrc
+	export PATH="$HOME/.composer/vendor/bin:$PATH"
+	SHELL
+EOF
+
+RUN composer global require squizlabs/php_codesniffer:^3.9

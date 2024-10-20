@@ -16,12 +16,16 @@
 		"issues": "https://github.com/ICanBoogie/bind-cldr/issues",
 		"source": "https://github.com/ICanBoogie/bind-cldr"
 	},
+	"config": {
+		"sort-packages": true
+	},
 	"minimum-stability": "dev",
 	"prefer-stable": true,
+	"prefer-dist": true,
 	"require": {
-		"php": ">=7.2",
-		"icanboogie/icanboogie": "^5.0",
-		"icanboogie/cldr": "^2.0|^3.0"
+		"php": ">=8.2",
+		"icanboogie/icanboogie": "^6.0",
+		"icanboogie/cldr": "^6.0"
 	},
 	"autoload": {
 		"psr-4": {
@@ -29,9 +33,9 @@
 		}
 	},
 	"autoload-dev": {
-		"classmap": [
-			"tests/Application.php"
-		]
+		"psr-4": {
+			"Test\\ICanBoogie\\Binding\\CLDR\\": "tests/lib"
+		}
 	},
 	"extra": {
 		"icanboogie": {
@@ -40,5 +44,9 @@
 	},
 	"scripts": {
 		"post-autoload-dump": "ICanBoogie\\Autoconfig\\Hooks::on_autoload_dump"
+	},
+	"require-dev": {
+		"phpstan/phpstan": "^1.12",
+		"phpunit/phpunit": "^11.3"
 	}
 }
